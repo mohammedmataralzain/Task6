@@ -1,7 +1,9 @@
 let form = document.getElementById("form");
 let posts = document.querySelector(".posts");
-let display = document.getElementById("display");
-let span = document.getElementById("span");
+let icons = document.querySelector(".icons");
+let addPost = document.getElementById("add-post");
+let add = document.getElementById("add");
+let not = document.getElementById("not");
 
 let list = [];
 /*
@@ -9,7 +11,7 @@ let list = [];
 /* using Ajax I to implement (read) request */
 
 let myRequst = new XMLHttpRequest();
-myRequst.open("GET", "https://jsonplaceholder.typicode.com/todos");
+myRequst.open("GET", "https://jsonplaceholder.typicode.com/posts");
 myRequst.send();
 myRequst.onreadystatechange = function () {
   if (this.readyState === 4 && this.status === 200) {
@@ -27,7 +29,7 @@ function createPosts(element) {
   let div = document.createElement("div");
   let h2 = document.createElement("h2");
   let p = document.createElement("p");
-  let pText = document.createTextNode(`  State : ${element.completed}`);
+  let pText = document.createTextNode(element.body);
   let h3Text = document.createTextNode(element.title);
   h2.append(h3Text);
   p.append(pText);
@@ -37,25 +39,21 @@ function createPosts(element) {
   posts.appendChild(div);
 }
 
-form.addEventListener("submit", (e) => {
+add.addEventListener("click", (e) => {
   e.preventDefault();
   let title = document.getElementById("title").value;
-  let completed = document.getElementById("completed").value;
-  let userId = document.getElementById("userId").value;
-  let id = document.getElementById("id").value;
+  let description = document.getElementById("description").value;
 
-  if (title.value !== "" && completed.value !== "") {
-    title.value = "";
-    completed.value = "";
-  }
+  // if (title.value !== "" && completed.value !== "") {
+  //   title.value = "";
+  //   completed.value = "";
+  // }
 
   fetch("https://jsonplaceholder.typicode.com/todos", {
     method: "POST",
     body: JSON.stringify({
-      userId: userId,
-      id: id,
       title: title,
-      completed: completed,
+      body: description,
     }),
     headers: {
       "Content-Type": "application/json; charsert=UTF-8",
@@ -68,10 +66,13 @@ form.addEventListener("submit", (e) => {
     });
 });
 
-display.addEventListener("click", () => {
+addPost.addEventListener("click", () => {
   form.style.display = "flex";
+  icons.style.display = "block";
+  addPost.style.display = "none";
 });
-
-span.addEventListener("click", () => {
+not.addEventListener("click", () => {
   form.style.display = "none";
+  icons.style.display = "none";
+  addPost.style.display = "grid";
 });
