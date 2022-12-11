@@ -10,27 +10,40 @@
 </head>
 
 <body>
+    <div class="container">
 
-    <h1 class="h1">Daily Todo</h1>
-    <div class="posts">
+        <h1 class="h1">Daily Todo</h1>
+
+        <section class="main">
+            <div class="posts">
+
+            </div>
+
+
+
+            <div class="form-addpost">
+                <form action="" method="POST" id="form">
+                    <h3>Form add post</h3>
+                    <input type="text" name="title" id="title" placeholder="add title to post" required>
+                    <textarea cols="30" rows="10" placeholder="add description to post " id="description"
+                        required></textarea>
+                </form>
+                <div class="icons">
+                    <img src="img/cancel.png" alt="cancel" id="not">
+                    <img src="img/done.svg" alt="done" id="add">
+                </div>
+            </div>
+        </section>
 
     </div>
-
-    <form action="" method="POST" id="form">
-
-        <input type="text" name="title" id="title">
-        <input type="text" name="completed" id="completed">
-        <input type="hidden" name="userId" id="userId" value="101">
-        <input type="hidden" name="id" id="id" value="1">
-
-        <div>
-            <span id="span">X</span>
-            <button id="button" type="submit">/</button>
+    <div class="addation">
+        <div class="add-post" id="add-post">
+            <a href="#form">
+                <h3>+</h3>
+            </a>
         </div>
-    </form>
-    <div class="footer">
-        <button id="display">+</button>
     </div>
+
     <script src="index.js"></script>
 </body>
 
