@@ -1,4 +1,3 @@
-/* End Variables */
 /* Start Global Rules */
 * {
     -webkit-box-sizing: border-box;
@@ -62,15 +61,6 @@ a {
     font-weight: 900;
 }
 
-.container form input, textarea {
-    border: 1px solid #F3F4F6;
-    border-radius: 4px;
-    outline: 1px solid transparent;
-    width: 400px;
-    padding: 15px;
-    margin: 10px auto;
-
-}
 
 form {
     background-color: aliceblue;
@@ -79,6 +69,15 @@ form {
 
 }
 
+.container form input, textarea {
+    border: 1px solid #F3F4F6;
+    border-radius: 4px;
+    outline: 1px solid transparent;
+    width: 500px;
+    padding: 15px;
+    margin: 10px auto;
+
+}
 .icons {
     display: none;
 }
@@ -103,8 +102,9 @@ form {
     transform: translate(-50%);
     border-radius: 50%;
     border: 3px solid #4e4a4a;
-
+    
 }
+
 
 .addation {
     width: 100%;
@@ -112,13 +112,12 @@ form {
     position: fixed;
     bottom: 0;
     background-image: linear-gradient(180deg, rgba(249, 250, 251, 0) 0%, #F9FAFB 47.81%);
-
-
+    
+    
 }
 
 .posts {
     text-align: center;
-    /* padding-bottom: 400px; */
 }
 
 .post {
@@ -130,6 +129,12 @@ form {
     box-shadow: 0px 4px 6px 1px #ab9b6a94;
 }
 
+@media (max-width : 700px) {
+    .post {
+        width: 100%;
+        
+    }
+}
 .post h2 {
     font-size: 24px;
     font-weight: 800;
@@ -139,4 +144,15 @@ form {
 
 #add, #not {
     z-index: 45;
+}
+
+
+.form-addpost input , .form-addpost textarea {
+    background-color: #e2e0ccf0;
+}
+@media (max-width : 700px) {
+    .container form input, textarea  {
+        width: 100%;
+       
+    }
 }

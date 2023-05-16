@@ -23,7 +23,7 @@ myRequst.onreadystatechange = function () {
   }
 };
 
-// function to creat Post
+// function to create Post
 
 function createPosts(element) {
   let div = document.createElement("div");
@@ -41,30 +41,31 @@ function createPosts(element) {
 
 add.addEventListener("click", (e) => {
   e.preventDefault();
+
   let title = document.getElementById("title").value;
   let description = document.getElementById("description").value;
 
-  // if (title.value !== "" && completed.value !== "") {
-  //   title.value = "";
-  //   completed.value = "";
-  // }
-
-  fetch("https://jsonplaceholder.typicode.com/todos", {
-    method: "POST",
-    body: JSON.stringify({
-      title: title,
-      body: description,
-    }),
-    headers: {
-      "Content-Type": "application/json; charsert=UTF-8",
-    },
-  })
-    .then((response) => response.json())
-    .then((post) => {
-      createPosts(post);
-      list.push(post);
-    });
-});
+  if(title !== "" && description !== "") {
+    fetch("https://jsonplaceholder.typicode.com/todos", {
+      method: "POST",
+      body: JSON.stringify({
+        title: title,
+        body: description,
+      }),
+      headers: {
+        "Content-Type": "application/json; charsert=UTF-8",
+      },
+    })
+      .then((response) => response.json())
+      .then((post) => {
+        createPosts(post);
+        list.push(post);
+        document.getElementById("title").value = "";
+        document.getElementById("description").value = "";
+      });
+    }
+    
+  });
 
 addPost.addEventListener("click", () => {
   form.style.display = "flex";
